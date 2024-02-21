@@ -1,0 +1,21 @@
+{% extends "profile/profile_base.html" %}
+
+{% block profile_right %}
+<form action="" method="post">
+    <p>Delivery Addresses</p>
+    <p>+ Add address</p>
+    <p>*Required fields</p>
+    {% csrf_token %}
+    <p>Street Address*</p>
+    {{form.address}}
+    <p>Appartments</p>
+    {{form.appartments}}
+    <p>City*</p>
+    {{form.city}}
+    <p>State*</p>
+    {{form.state}}
+    <p>Zip Code*</p>
+    {{form.zip_code}}
+    <button type="submit">Save</button>
+</form>
+{% endblock profile_right %}

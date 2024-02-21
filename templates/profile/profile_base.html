@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block style %}
+<link rel="stylesheet" href="/static/css/profile.css">
+
+{% endblock style %}
+
+{% block content %}
+<div class="header-panel">
+    <ol>
+        <span class="account"><a href="">My account</a></span>
+        <span>/</span>
+        <span class="home"><a href="">Home</a></span>
+    </ol>
+</div>
+<div class="block-content">
+    <div class="block-left">
+        <div class="intro">
+            <h1>
+                Hi, Edil
+            </h1>
+            <span class="intro-bottom">
+                Thanks for being a Walmart customer
+            </span>
+        </div>
+        <hr>
+        <div class="navigation">
+            <ul class="first-nav">
+                <li class="your-orders"><a href="">Purchase History</a></li>
+                <li class="my-savings"><a href="">My savings</a></li>
+                <li class="wallet"><a href="">Wallet</a></li>
+                <li class="walmart+"><a href="">Walmart+</a></li>
+            </ul>
+           <hr>
+            <ul class="second-nav">
+                <h3>My profile</h3>
+                <li class=""><a href="">Pets</a></li>
+                <li class=""><a href="">Vehicles</a></li>
+            </ul>            
+            <hr>
+
+            <ul class="third-nav">
+                <h3>Manage Account</h3>
+                <li class=""><a href="">Personal info</a></li>
+                <li class=""><a href="">Address</a></li>
+                <li class=""><a href="">Communications & privacy</a></li>
+                <li class=""><a href="">Giving & impact</a></li>
+                
+            </ul>
+           <hr>
+
+            <ul class="fourth-nav">
+                <h3>My items</h3>
+                <li class=""><a href="">Walmart Cash</a></li>
+                <li class=""><a href="">Reorder</a></li>
+                <li class=""><a href="">Lists</a></li>
+                <li class=""><a href="">Regisrties</a></li>
+            </ul>
+           <hr>
+            <ul class="five-nav">
+                <h3>Subscriptions & plans</h3>
+                <li class=""><a href="">Protection plans</a></li>
+                <li class=""><a href="">Item subscription</a></li>
+            </ul>
+            <hr>
+
+            <ul class="six-nav">
+                <h3>Other Accounts</h3>
+                <li class=""><a href="">Pharmacy</a></li>
+                <li class=""><a href="">Photo</a></li>
+                <li class=""><a href="">Ebooks</a></li>
+            </ul>
+            <hr>
+
+            <ul class="seven-nav">
+                <h3>Privacy</h3>
+                <li class=""><a href="">Privacy Policy</a></li>
+                <li class=""><a href="">Your Privacy Choices</a></li>
+                <li class=""><a href="">Request My Personal Information</a></li>
+            </ul>
+            <hr>
+
+            <ul class="eight-nav">
+                <h3>Customer Service</h3>
+                <li class=""><a href="">Help</a></li>
+                <li class=""><a href="">Terms of Use</a></li>
+            </ul>
+            
+            <ul class="nine-nav">
+                <li class=""><a href="">Sign Out</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="block-right">
+        {% block profile_right %}
+        {% endblock profile_right %}
+    </div>
+</div>
+<footer>
+
+</footer>
+{% endblock content %}

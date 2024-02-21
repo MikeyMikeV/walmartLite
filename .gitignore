@@ -1,2 +1,6 @@
 /.env
 /myvenv
+/shopApp/migrations
+/todo.txt
+/profiles/migrations
+/orders/migrations

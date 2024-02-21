@@ -1,0 +1,7 @@
+{% load product_tags %}
+<ul>
+    {% for brand in brands %}
+        <li>{{ brand.name }}</li>
+        {% draw_brands obj_id=sub_category.pk %}
+    {% endfor %}
+</ul>

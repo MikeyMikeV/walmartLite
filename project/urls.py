@@ -3,7 +3,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('shopApp.urls'))
+    path('',include('shopApp.urls')),
+    path('profile/',include('profiles.urls')),
 ]
 
 from django.conf import settings

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WalmartLite</title>
     <link rel="stylesheet" href="/static/css/category_list.css">
+    <link rel="stylesheet" href="/static/css/base.css">
     <link rel="stylesheet" href="/static/css/profile.css">
     <link
       rel="shortcut icon"
@@ -15,217 +16,42 @@
     <link rel="shortcut icon" href="/media/icons/td2.png" type="image/png" />
     {% block style %}
     {% endblock style %}
-    <style>
-      body {
-        margin: 0;
-      }
-
-      header {
-        width: 100%;
-        margin: 0;
-        background-color: rgb(30, 144, 255);
-        height: 90px;
-        display: flex;
-        align-items: center;
-      }
-
-      header h1 {
-        margin-left: 20px;
-        color: white;
-      }
-
-      nav {
-        display: flex;
-        align-items: center;
-        margin-left: auto;
-      }
-
-      nav a {
-        margin-right: 10px;
-        text-decoration: none;
-        color: white;
-      }
-
-      main {
-        width: 100%;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .category-block {
-        width: 80%;
-        margin: 20px 0;
-        display: flex;
-      }
-
-      .categories {
-        width: 30%;
-      }
-
-      .category {
-        margin-bottom: 10px;
-        cursor: pointer;
-      }
-
-      .sub-category {
-        margin-left: 20px;
-        display: none;
-      }
-
-      .products {
-        width: 70%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-      }
-
-      .custom-block {
-        width: 100%;
-        margin: 20px 0;
-        background-color: white;
-        display: flex;
-        justify-content: space-between;
-        cursor: pointer;
-        transition: background-color 0.3s;
-      }
-
-      .custom-block .main-block,
-      .custom-block .secondary-block,
-      .custom-block .product-block {
-        width: 100%;
-        height: 180px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .custom-block .main-block p,
-      .custom-block .secondary-block p,
-      .custom-block .product-block p {
-        font-size: 24px;
-        color: black;
-        margin: 0;
-      }
-
-      .custom-block .small-block {
-        width: calc(33.33% - 10px);
-        margin: 0 5px;
-        height: 160px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        background-color: #f0f0f0;
-        cursor: pointer;
-        transition: background-color 0.3s;
-      }
-
-      .custom-block .small-block img,
-      .custom-block .product-block img {
-        max-width: 60%;
-        max-height: 70%;
-        height: auto;
-        margin-bottom: 10px;
-      }
-
-      .custom-block .small-block p,
-      .custom-block .product-block p {
-        font-size: 14px;
-        margin: 0;
-      }
-
-      .custom-block .shop-now,
-      .custom-block .add-to-cart {
-        padding: 10px;
-        background-color: #3063c2;
-        color: white;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 14px;
-        cursor: pointer;
-      }
-
-      .custom-block:hover,
-      .custom-block .small-block:hover,
-      .custom-block .product-block:hover {
-        background-color: #e0e0e0;
-      }
-
-      .fresh-menu {
-        text-align: left;
-        margin-left: 10%;
-        font-size: 24px;
-        color: white;
-      }
-
-      /* Новый стиль для кастомных блоков товаров */
-      .custom-block .product-block {
-        position: relative;
-      }
-
-      .custom-block .product-block .product-details {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        padding: 10px;
-        background-color: rgba(0, 0, 0, 0.7);
-        color: white;
-        width: 100%;
-        box-sizing: border-box;
-      }
-
-      .custom-block .product-block .product-details a {
-        display: block;
-        background-color: #3063c2;
-        color: white;
-        text-align: center;
-        text-decoration: none;
-        padding: 5px;
-        font-size: 14px;
-        cursor: pointer;
-      }
-    
-    </style>
+  
 </head>
 <body>
-    <div style="height: 128px; background-color:rgb(48, 111, 213);">
-        <div style="height: 89px; background-color:rgb(48, 111, 213);">
-                <button style="float:left; height: 50px; width: 120px; background-color:rgb(34, 79, 153); border-radius: 20px; border-color: transparent; margin-top: 20px; margin-left: 30px; margin-right: 5px; font-size: medium; color:white;">Walmart</button>
-                </button>
-                <a href="{% url 'cat_list' %}"><button style="float:left; height: 50px; width: 120px; background-color:rgb(34, 79, 153); border-radius: 20px; border-color: transparent; margin-top: 20px; margin-left: 5px; margin-right: 5px; font-size: medium; color:white;">Departments</button>
-                </button></a>
-                <button style="float:left; height: 50px; width: 120px; background-color:rgb(34, 79, 153); border-radius: 20px; border-color: transparent; margin-top: 20px; margin-left: 5px; margin-right: 5px; font-size: medium; color:white;">Services</button>
-                </button>
-                <div style="float:left; height: 50px; width: 650px; background-color:rgb(255, 255, 255); border-radius: 20px; border-color: transparent; margin-top: 20px; margin-left: 5px; margin-right: 5px; font-size: medium; color:white;">
-                  <input style="float: left; margin-top: 15px; height: 20px; margin-left: 5px; background-color: transparent; border-color: transparent;" type="text" size="83" value="Search everything at Walmart online and in store" readonly />
-                  <button style="float:left; height: 40px; width: 40px; background-color:rgb(224, 235, 110); border-radius: 20px; border-color: transparent; margin-top: 5px; margin-left: 5px; color: white;"></button>
-                </div>
-                <button style="float:left; height: 50px; width: 120px; background-color:rgb(34, 79, 153); border-radius: 20px; border-color: transparent; margin-top: 20px; margin-left: 5px; margin-right: 5px; font-size: medium; color:white;">My Items</button>
-                </button>
-                <button style="float:left; height: 50px; width: 120px; background-color:rgb(34, 79, 153); border-radius: 20px; border-color: transparent; margin-top: 20px; margin-left: 5px; margin-right: 5px; font-size: medium; color:white;">Account</button>
-            </button>
-            <button style="float:left; height: 50px; width: 50px; background-color:rgb(34, 79, 153); border-radius: 50px; border-color: transparent; margin-top: 20px; margin-left: 5px; margin-right: 5px; font-size: medium; color:white;"></button>
-        </button>
-        </div>
-        <div style="height: 2px; background-color:rgb(255, 255, 255);">
+  <div style="height: 100px; background-color:rgb(48, 111, 213);">
+      <div style="height: 89px; width: 30%; background-color:rgb(48, 111, 213); float: left;">
+              <button class="button-head"> Walmart</button>
+              <a href="{% url 'cat_list' %}"><button style="float:left; height: 50px; width: 120px; background-color:rgb(34, 79, 153); border-radius: 20px; border-color: transparent; margin-top: 20px; margin-left: 5px; margin-right: 5px; font-size: medium; color:white;">Departments</button>
+              </button></a>
+              <button class="button-head"> Services</button>
+      </div>
+      <div style="height: 89px; width: 40%; float: left; background-color:rgb(48, 111, 213);">
+        <input class="input-button" type="text">
+        <button class="searche-button"> O</button>
+      </div>
+      <div style="height: 89px; width: 30%; float: left; background-color:rgb(48, 111, 213);">
+        <button class="button-head"> My Items</button>
+        <a href="{% url 'profile_detail' uid=user.pk %}"><button class="button-head"> Account</button></a>
+        <button class="button-head"> Basket</button>
+      </div>
+  </div>
+  <div ></div>
+  <div style="height: 3px; background-color: white;"></div>
+  <div style="height: 39px; width: 55%; background-color:rgb(48, 111, 213); float: left;">
+      <button class="delivery-button">How do you whant your Items? </button>
     </div>
-    <div style="height: 39px; background-color:rgb(48, 111, 213);">
-        <button style="float:left; height: 39px; width: 500px; background-color:rgb(48, 111, 213); margin-left: 0px; border-color: transparent; color:white; font-size: medium;">How do you whant your Items? Sacramento,95829 Sacrament </button>
-        <button style="background-color: rgb(48, 111, 213); margin-left: 100px; margin-top: 7px; border-color: transparent; color: white; font-size: medium;">Deal</button>
-        <button style="background-color: rgb(48, 111, 213); margin-left: 20px; margin-top: 7px; border-color: transparent; color: white; font-size: medium;">Grocery & Essentials</button>
-        <button style="background-color: rgb(48, 111, 213); margin-left: 20px; margin-top: 7px; border-color: transparent; color: white; font-size: medium;">Valentine's Day</button>
-        <button style="background-color: rgb(48, 111, 213); margin-left: 20px; margin-top: 7px; border-color: transparent; color: white; font-size: medium;">Winter Prep</button>
-        <button style="background-color: rgb(48, 111, 213); margin-left: 20px; margin-top: 7px; border-color: transparent; color: white; font-size: medium;">Game Time</button>
-        <button style="background-color: rgb(48, 111, 213); margin-left: 20px; margin-top: 7px; border-color: transparent; color: white; font-size: medium;">Fashion</button>
-        <button style="background-color: rgb(48, 111, 213); margin-left: 20px; margin-top: 7px; border-color: transparent; color: white; font-size: medium;">Home</button>
-        <button style="background-color: rgb(48, 111, 213); margin-left: 20px; margin-top: 7px; border-color: transparent; color: white; font-size: medium;">Electronics</button>
-    </div>
-    <main>
-        {% block content %}
-        {% endblock content %}
-    </main>
-</body>
+    <div style="height: 39px; width: 45%; background-color:rgb(48, 111, 213); float: left;">
+      <button class="deal-button">Deal #0</button>
+      <button class="deal-button">Deal #1</button>
+      <button class="deal-button">Deal #2</button>
+      <button class="deal-button">Deal #3</button>
+      <button class="deal-button">Deal #4</button>
+      <button class="deal-button">Deal #5</button>
+      <button class="deal-button">Deal #6</button>
+    </div>
+<div>
+{%block content%}
+{%endblock%}  
+</div>
 </html>
