@@ -42,9 +42,3 @@ def product_detail(request, pid):
     }
     return render(request, 'shop/product_detail.html',context)
 
-def profile(request):
-    return render(request, 'profile/profile.html', {})
-
-def email_req(request):
-    return render(request, 'profile/reg1.html', {})
-

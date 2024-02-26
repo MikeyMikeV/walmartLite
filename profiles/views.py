@@ -2,15 +2,15 @@ from django.shortcuts import render, redirect
 from .models import Profile,Address
 from .forms import AddressForm
 
-def profile_detail(request, uid):
-    profile = Profile.objects.get(user_id = uid)
+def profile_detail(request):
+    profile = Profile.objects.get(user = request.user)
     context = {
         'profile':profile,
     }
     print(profile.pk,1)
     return render(request, 'profile\profile_info.html', context)
 
-def add_address(request, uid):
+def add_address(request):
     if request.method != "POST":
         form = AddressForm()
     else:
@@ -19,7 +19,7 @@ def add_address(request, uid):
             address:Address = form.save(commit = False)
             ...
             address.save()
-            return redirect('profile_detail', uid)
+            return redirect('profile_detail', request.user.pk)
     context = {
         'form':form
     }

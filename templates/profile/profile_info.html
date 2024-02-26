@@ -60,34 +60,32 @@
         </div>
     </div>
     <div class="account-block">
-                    <div class="account-info">
-                        <img class="account-logo" src="/static/image/Account-User-PNG-Clipart.png" alt="user-logo" width="30" height="30">
-                        <span class="info-bottom"><a href=""><h2 class="info-text">Account info</h2>
-                        <p class="bottom-text">Addresses, contact, information and password</p></a> </span>
-                        <img src="/static/image/больше.jpg" alt="" class="header-high" width="30" height="30">
-                </div>
-                <div class="left-right-side">
-                    <div class="left-side">
-                        <h2>Email Address</h2>
-                        <p>{{profile.user.email}} <span class="left-side-text"><a class="verif-link"href=""> Needs verification</a></span></p>
-                    </div>
-                    <div class="right-side">
-                        <h2>Add an address</h2>
-                        {% if not profile.address %}
-                        <p class="right-side-text">Adding an address allows for quicker checkout and approximation of delivery times</p>                        {% else %}
-                        <p class="right-side-text">{{profile.address}}</p>
-                        {% endif %}
-                        <a href="{% url 'add_address' uid=user.pk %}"><button class="right-side-button">Add an Address</button></a>
-                    </div>
-                </div>
-                <div class="bottom-side">
-                    <h2>Phone number</h2>
-                    {% if not profile.phone_number %}
-                    <span class="bottom-text-s"><a class="phone-link" href="">Add phone number</a></span>
-                    {% endif %}
-                    <p>{{profile.phone_number}} <span class="left-side-text"><a class="verif-link"href=""> Needs verification</a></span></p>
-                </div>
+        <div class="account-info">
+            <img class="account-logo" src="/static/image/Account-User-PNG-Clipart.png" alt="user-logo" width="30" height="30">
+            <span class="info-bottom"><a href=""><h2 class="info-text">Account info</h2>
+            <p class="bottom-text">Addresses, contact, information and password</p></a> </span>
+            <img src="/static/image/больше.jpg" alt="" class="header-high" width="30" height="30">
+        </div>
+        <div class="left-right-side">
+            <div class="left-side">
+                <h2>Email Address</h2>
+                <p>{{profile.user.email}} <span class="left-side-text"><a class="verif-link"href=""> Needs verification</a></span></p>
             </div>
+            <div class="right-side">
+                <h2>Add an address</h2>
+                {% if not profile.address %}
+                <p class="right-side-text">Adding an address allows for quicker checkout and approximation of delivery times</p>                        {% else %}
+                <p class="right-side-text">{{profile.address}}</p>
+                {% endif %}
+                <a href="{% url 'add_address'%}"><button class="right-side-button">Add an Address</button></a>
+            </div>
+        </div>
+        <div class="bottom-side">
+            <h2>Phone number</h2>
+            {% if not profile.phone_number %}
+            <span class="bottom-text-s"><a class="phone-link" href="">Add phone number</a></span>
+            {% endif %}
+            <p>{{profile.phone_number}} <span class="left-side-text"><a class="verif-link"href=""> Needs verification</a></span></p>
         </div>
         <div class="lists">
             <div class="header-list">

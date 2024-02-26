@@ -32,7 +32,7 @@
       </div>
       <div style="height: 89px; width: 30%; float: left; background-color:rgb(48, 111, 213);">
         <button class="button-head"> My Items</button>
-        <a href="{% url 'profile_detail' uid=user.pk %}"><button class="button-head"> Account</button></a>
+        <a href={% if user.is_authenticated %}"{% url 'profile_detail' %}"{% else %}"{% url 'login' %}?next={{request.path}}"{% endif %}><button class="button-head"> Account</button></a>
         <button class="button-head"> Basket</button>
       </div>
   </div>
