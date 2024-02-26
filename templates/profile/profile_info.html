@@ -84,8 +84,9 @@
             <h2>Phone number</h2>
             {% if not profile.phone_number %}
             <span class="bottom-text-s"><a class="phone-link" href="">Add phone number</a></span>
-            {% endif %}
+            {% else %}
             <p>{{profile.phone_number}} <span class="left-side-text"><a class="verif-link"href=""> Needs verification</a></span></p>
+            {% endif %}
         </div>
         <div class="lists">
             <div class="header-list">

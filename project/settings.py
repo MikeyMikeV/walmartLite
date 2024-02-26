@@ -36,10 +36,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'shopApp',
     'profiles',
     'orders',
-    'mptt'
+    
+    'mptt',
+    'allauth',
+    'allauth.account',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -106,6 +111,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# ALL AUTH
+# ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/

@@ -6,8 +6,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('shopApp.urls')),
     path('profile/',include('profiles.urls')),
-    path('login/', LoginView.as_view(), name='login'),
-    path('logout/',LogoutView.as_view(), name='logout'),
+    path('accounts/', include('allauth.urls')),
 ]
 
 from django.conf import settings
