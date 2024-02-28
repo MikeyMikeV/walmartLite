@@ -1,4 +1,5 @@
 {% extends "profile/profile_base.html" %}
+{% load profile_tags %}
 
 {% block profile_right %}
 <div class="header">
@@ -73,11 +74,13 @@
             </div>
             <div class="right-side">
                 <h2>Add an address</h2>
-                {% if not profile.address %}
-                <p class="right-side-text">Adding an address allows for quicker checkout and approximation of delivery times</p>                        {% else %}
-                <p class="right-side-text">{{profile.address}}</p>
-                {% endif %}
+                {% if not profile.address.exists %}
+                <p class="right-side-text">Adding an address allows for quicker checkout and approximation of delivery times</p>
                 <a href="{% url 'add_address'%}"><button class="right-side-button">Add an Address</button></a>
+                {% else %}
+                <p class="right-side-text">{{profile|get_current_address}}</p>
+                <a href="{% url 'add_address'%}"><button class="right-side-button">Change Address</button></a>
+                {% endif %}
             </div>
         </div>
         <div class="bottom-side">

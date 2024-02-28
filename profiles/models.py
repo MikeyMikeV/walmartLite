@@ -11,7 +11,7 @@ class Profile(models.Model):
     payment_card =models.CharField(max_length=20, blank = True, null = True)
     walmart_cash = models.DecimalField(max_digits=13,decimal_places = 2, validators=[MinValueValidator(0)], default = 0)
     cart =models.ManyToManyField(Product, blank = True, null = True)
-    address =models.CharField(max_length=250, blank = True, null = True)
+    address =models.ManyToManyField('Address',blank=True)
     phone_number = PhoneNumberField(blank = True)
     order_history =models.ManyToManyField(Order, blank = True, null = True)
 
@@ -27,8 +27,11 @@ class Address(models.Model):
     notes = models.CharField(max_length = 250,blank = True, null = True)
     current_address = models.BooleanField(default=True)
 
+    def __str__(self) -> str:
+        return f'{self.address}, {self.appartments}'
+
 from django.dispatch import receiver
 
 @receiver(models.signals.post_save, sender = User)
 def auto_delete_file_on_delete(sender, instance:User, **kwargs):
-    Profile.objects.create(user = instance)
+    Profile.objects.get_or_create(user = instance)
