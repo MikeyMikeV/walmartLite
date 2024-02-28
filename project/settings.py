@@ -23,8 +23,8 @@ LOGIN_REDIRECT_URL = '/'
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER = os.getenv('EMAIL_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PASSWORD')
 EMAIL_PORT = 587
 
 # Application definition
@@ -114,7 +114,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # ALL AUTH
 ACCOUNT_EMAIL_REQUIRED = True
 # ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
+# ACCOUNT_UNIQUE_EMAIL = False
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
