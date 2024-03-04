@@ -35,3 +35,12 @@ def add_address(request):
         'form':form
     }
     return render(request, 'profile/add_address.html',context)
+
+# def choose_address():
+#     выбор из старых адресов.
+#     поставить текущий как false
+#     Поставить выбранный адрес как True
+
+# def address_list():
+#     показывать список адресов
+#     Предлагает действия: Изменить/Удалить адрес

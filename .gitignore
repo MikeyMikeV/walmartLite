@@ -5,3 +5,6 @@
 /profiles/migrations
 /orders/migrations
 /media
+/profiles/__pycache__
+/orders/__pycache__
+/shopApp/__pycache__
