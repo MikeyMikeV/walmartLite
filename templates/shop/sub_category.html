@@ -15,17 +15,19 @@
     <h2>Товары</h2>
     <div class="custom-block">
         {% for product in products %}
-        <a href="{% url 'product_detail' pid=product.pk %}">
-        <div class="product-block">
-            <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}" />
+        <div class="product-block" style="border: 2px black solid;">
+            <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}" style='width: 100px; height: 100px; object-fit: cover;'>
             <div class="product-details">
-                <a class="add-to-cart" href="/path/to/add-to-cart/{{ product.id }}">+ADD</a>
-                <p>{{ product.name }}</p>
+                <button class="button-cart" id="add_to_cart_{{product.pk}}"> +ADD</button>
+                <br><br><br><br>
+                <a href="{% url 'product_detail' pid=product.pk %}"><p>{{ product.name }}</p></a>
                 <p>${{ product.calculate_price }}</p>
             </div>
         </div>
-        </a>
+        
         {% endfor %}
     </div>
 </div>
+{{ user.pk|json_script:"user_id" }}
+<script src="/static/scripts/sub_category.js"></script>
 {% endblock content %}

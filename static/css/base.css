@@ -1,4 +1,5 @@
-.button-head  {
+.button-head,
+.button-cart  {
   float:left; 
   height: 50px; 
   width: 120px; 
@@ -50,5 +51,5 @@ margin-top: 7px;
 border-color: transparent; 
 color: white; 
 font-size: medium;
-float: left;
+  float: left;
 }

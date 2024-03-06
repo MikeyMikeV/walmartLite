@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WalmartLite</title>
-    <link rel="stylesheet" href="/static/css/category_list.css">
     <link rel="stylesheet" href="/static/css/base.css">
     <link rel="stylesheet" href="/static/css/profile.css">
     <link rel="shortcut icon" href="/media/icons/favicon.ico" type="image/x-icon">
@@ -17,10 +16,9 @@
 <body>
   <div style="height: 100px; background-color:rgb(48, 111, 213);">
       <div style="height: 89px; width: 30%; background-color:rgb(48, 111, 213); float: left;">
-              <button class="button-head"> Walmart</button>
-              <a href="{% url 'cat_list' %}"><button style="float:left; height: 50px; width: 120px; background-color:rgb(34, 79, 153); border-radius: 20px; border-color: transparent; margin-top: 20px; margin-left: 5px; margin-right: 5px; font-size: medium; color:white;">Departments</button>
-              </button></a>
-              <button class="button-head"> Services</button>
+              <a href="{% url 'home_page' %}"><button class="button-head"> Walmart</button></a>
+              <a href="{% url 'cat_list' %}"><button style="float:left; height: 50px; width: 120px; background-color:rgb(34, 79, 153); border-radius: 20px; border-color: transparent; margin-top: 20px; margin-left: 5px; margin-right: 5px; font-size: medium; color:white;">Departments</button></a>
+              <button class="button-head"> Services</button>{% comment %} недоделано  {% endcomment %}
       </div>
       <div style="height: 89px; width: 40%; float: left; background-color:rgb(48, 111, 213);">
         <input class="input-button" type="text">
@@ -37,7 +35,7 @@
         {% endif %}
       </div>
   </div>
-  <div ></div>
+  {% comment %} <div ></div> {% endcomment %}
   <div style="height: 3px; background-color: white;"></div>
   <div style="height: 39px; width: 55%; background-color:rgb(48, 111, 213); float: left;">
       <button class="delivery-button">How do you whant your Items? </button>

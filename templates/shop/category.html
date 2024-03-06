@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 
-    {% block content %}
+{% block style %}
+<link rel="stylesheet" href="/static/css/category.css">
+{% endblock style %}
+
+{% block content %}
     {% load product_tags %}
     <div class="products">
         <div class="custom-block">
@@ -12,28 +16,26 @@
         A fresh menu for less
         </p>
         <div class="custom-block">
-        <div class="secondary-block">
-            <div class="small-block" onclick="location.href='/path/to/page1';">
-            <img src="../media/phototovarov/1.png" alt="Image 1" />
-            <p>Lean proteins</p>
-            <p>
-                Save on high-quality meat & seafood to mix into your dishes.
-            </p>
-            <a class="shop-now" href="/path/to/page1">Shop Now</a>
+            <div class="secondary-block">
+                <div class="small-block" onclick="location.href='/path/to/page1';">
+                    <img src="/media/phototovarov/1.png" alt="Image 1">
+                    <p>Lean proteins</p>
+                    <p>Save on high-quality meat & seafood to mix into your dishes.</p>
+                    <a class="shop-now" href="/path/to/page1">Shop Now</a>
+                </div>
+                <div class="small-block" onclick="location.href='/path/to/page2';">
+                    <img src="/media/phototovarov/2.png" alt="Image 2">
+                    <p>Low-carb sides</p>
+                    <p>Crush your new year's goals with easy sides for less</p>
+                    <a class="shop-now" href="/path/to/page2">Shop Now</a>
+                </div>
+                <div class="small-block" onclick="location.href='/path/to/page3';">
+                    <img src="/media/phototovarov/3.png" alt="Image 3">
+                    <p>Feel-good frozen finds</p>
+                    <p>Filling meals that can be ready in minutes—yes, please.</p>
+                    <a class="shop-now" href="/path/to/page3">Shop Now</a>
+                </div>
             </div>
-            <div class="small-block" onclick="location.href='/path/to/page2';">
-            <img src="../media/phototovarov/2.png" alt="Image 2" />
-            <p>Low-carb sides</p>
-            <p>Crush your new year's goals with easy sides for less</p>
-            <a class="shop-now" href="/path/to/page2">Shop Now</a>
-            </div>
-            <div class="small-block" onclick="location.href='/path/to/page3';">
-            <img src="../media/phototovarov/3.png" alt="Image 3" />
-            <p>Feel-good frozen finds</p>
-            <p>Filling meals that can be ready in minutes—yes, please.</p>
-            <a class="shop-now" href="/path/to/page3">Shop Now</a>
-            </div>
-        </div>
         </div>
         <div class="category-block">
             <div class="categories">
@@ -86,9 +88,9 @@
                 <div class="product-block" onclick="location.href='/path/to/new-product1';">
                   <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}" />
                     <div class="product-details">
-                    <a class="add-to-cart" href="/path/to/add-to-cart/new-product1">+ADD</a>
-                    <p>{{product.name}}</p>
-                    <p>{{product.price}}</p>
+                        <a class="add-to-cart" href="/path/to/add-to-cart/new-product1">+ADD</a>
+                        <p>{{product.name}}</p>
+                        <p>{{product.price}}</p>
                     </div>
                 </div>
                 {% endfor %}
