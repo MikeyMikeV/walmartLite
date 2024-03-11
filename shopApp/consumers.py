@@ -2,7 +2,7 @@ from channels.generic.websocket import WebsocketConsumer
 from asgiref.sync import async_to_sync
 import json
 from .models import Product
-from profiles.models import Profile
+from profiles.models import Profile, CartDetail
 
 class ShopConsumer(WebsocketConsumer):
     def __init__(self, *args, **kwargs):
@@ -32,15 +32,19 @@ class ShopConsumer(WebsocketConsumer):
     def receive(self, text_data=None, bytes_data=None):
         text_data_json = json.loads(text_data)
         message = text_data_json['message']
-
+        print(text_data_json)
         match message:
             case 'add_cart':
-                product = Product.objects.get(pk = text_data_json['product_id'])
-                self.profile.cart.add(product)
+                cart_detail = CartDetail.objects.create(product_id = text_data_json['product_id'])
+                self.profile.cart.add(cart_detail)
             case 'plus_count':
-                pass
+                cart_detail = self.profile.cart.get(product_id=text_data_json['product_id'])
+                cart_detail.count += 1
+                cart_detail.save()
             case 'minus_count':
-                pass
+                cart_detail = self.profile.cart.get(product_id=text_data_json['product_id'])
+                cart_detail.count -= 1
+                cart_detail.save()
             case 'clear_product':
                 pass
             case _:

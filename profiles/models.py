@@ -10,13 +10,19 @@ class Profile(models.Model):
     date_of_birth=models.DateField(blank = True, null = True)
     payment_card =models.CharField(max_length=20, blank = True, null = True)
     walmart_cash = models.DecimalField(max_digits=13,decimal_places = 2, validators=[MinValueValidator(0)], default = 0)
-    cart =models.ManyToManyField(Product, blank = True, null = True)
+    cart =models.ManyToManyField('CartDetail', blank = True, null = True)
     address =models.ManyToManyField('Address',blank=True)
     phone_number = PhoneNumberField(blank = True)
     order_history =models.ManyToManyField(Order, blank = True, null = True)
 
     def __str__(self):
         return f'{self.user.username}\'s profile'
+    
+from django.dispatch import receiver
+
+@receiver(models.signals.post_save, sender = User)
+def auto_delete_file_on_delete(sender, instance:User, **kwargs):
+    Profile.objects.get_or_create(user = instance)
 
 class Address(models.Model):
     address = models.CharField(max_length = 100,)
@@ -30,8 +36,9 @@ class Address(models.Model):
     def __str__(self) -> str:
         return f'{self.address}, {self.appartments}'
 
-from django.dispatch import receiver
+class CartDetail(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    count = models.IntegerField(default = 1, validators = [MinValueValidator(1)])
 
-@receiver(models.signals.post_save, sender = User)
-def auto_delete_file_on_delete(sender, instance:User, **kwargs):
-    Profile.objects.get_or_create(user = instance)
+    def __str__(self) -> str:
+        return f'{self.product.name}: x{self.count}'

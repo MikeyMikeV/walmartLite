@@ -17,8 +17,21 @@
         {% for product in products %}
         <div class="product-block" style="border: 2px black solid;">
             <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}" style='width: 100px; height: 100px; object-fit: cover;'>
-            <div class="product-details">
-                <button class="button-cart" id="add_to_cart_{{product.pk}}"> +ADD</button>
+            <div class="product-details" id={{product.pk}}>
+                <div class="button-cart add"><button  id="add_to_cart_{{product.pk}}"> +ADD </button></div>
+                {% comment %} <div class="button-cart edit">
+                    <div class="left">
+                        <button id="minus_count_{{product.pk}}">-</button>
+                    </div>  
+                    <div class="middle">
+                        {% show_product_count:product.pk %}
+                        1
+                    </div>
+                    <div class="right">
+                        <button id="plus_count_{{product.pk}}">+</button>
+                    </div>
+                </div> {% endcomment %}
+                <button class="button-cart remove" id="delete_from_cart_{{product.pk}}"> REMOVE</button>
                 <br><br><br><br>
                 <a href="{% url 'product_detail' pid=product.pk %}"><p>{{ product.name }}</p></a>
                 <p>${{ product.calculate_price }}</p>
